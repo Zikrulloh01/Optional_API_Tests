@@ -1,24 +1,20 @@
 package com.spartan.DDF_tests.tests;
-import com.google.gson.Gson;
+
 import com.spartan.DDF_tests.utilities.ConfigurationReader;
 import com.spartan.DDF_tests.utilities.ExcelUtil;
 import io.restassured.http.ContentType;
-import io.restassured.response.Response;
-
 import static org.hamcrest.Matchers.equalTo;
-import static org.testng.Assert.*;
-
-import io.restassured.response.ValidatableResponse;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
-
 import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
+
+
+
 public class SpartansApi {
 
 
@@ -53,6 +49,9 @@ public class SpartansApi {
     }
 
 
+
+
+
     @Test(dataProvider = "dp")
     public void testDP(String name, String gender, String phone){
 
@@ -76,19 +75,8 @@ public class SpartansApi {
                         "data.name", equalTo(map.get("name")),
                         "data.gender", equalTo(map.get("gender")),
                         "data.phone", equalTo(map.get("phone")));
-
-
-
-//        assertEquals(response.statusCode(), 201);
-//        assertEquals(response.contentType(), "application/json");
-//
-//
-//        assertEquals(response.path("data.phone"), map.get("phone"));
-//        assertEquals(response.path("data.name"), map.get("name"));
-//        assertEquals(response.path("data.gender"), map.get("gender"));
-
-
-
     }
+
+
 
 }
